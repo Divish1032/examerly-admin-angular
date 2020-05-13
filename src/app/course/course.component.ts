@@ -29,6 +29,7 @@ export class CourseComponent implements OnInit {
   getCourses() {
     this.courseService.getUsersFromData().subscribe(res => {
       this.course = res;
+      console.log(res)
     });
   }
 
