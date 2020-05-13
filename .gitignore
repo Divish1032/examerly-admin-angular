@@ -6,10 +6,6 @@
 # Only exists if Bazel was run
 /bazel-out
 
-
-/src
-/e2e
-
 # dependencies
 /node_modules
 
