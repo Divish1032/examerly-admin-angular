@@ -1,0 +1,7 @@
+{
+    "/*": {
+        "target": "http://ec2-13-233-34-80.ap-south-1.compute.amazonaws.com:3000",
+        "secure": false,
+        "logLevel": "debug"
+    }
+}
