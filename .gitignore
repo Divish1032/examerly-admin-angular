@@ -9,12 +9,6 @@
 
 /src
 /e2e
-/.firebase
-.editorconfig
-.firebaserc
-angular.json
-firebase.json
-karma.conf.js
 
 # dependencies
 /node_modules
