@@ -16,7 +16,19 @@ import { QuizComponent } from './quiz/quiz.component';
 import { QuestionComponent } from './question/question.component';
 import { UserquizComponent } from './userquiz/userquiz.component';
 import { UserquizanswerComponent } from './userquizanswer/userquizanswer.component';
+import { LoginComponent } from './login/login.component';
+import { JwtModule } from '@auth0/angular-jwt';
+import { SubscriptionComponent } from './subscription/subscription.component';
+import { AuthService } from './services/auth.service';
+import { AuthGuard } from './services/auth.guard';
+import { CourseService } from './services/course.service';
+import { SubjectService } from './services/subject.service';
  
+
+export function tokenGetter() {
+  return localStorage.getItem('access_token');
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +40,9 @@ import { UserquizanswerComponent } from './userquizanswer/userquizanswer.compone
     QuizComponent,
     QuestionComponent,
     UserquizComponent,
-    UserquizanswerComponent
+    UserquizanswerComponent,
+    LoginComponent,
+    SubscriptionComponent
   ],
   imports: [
     BrowserModule,
@@ -36,9 +50,21 @@ import { UserquizanswerComponent } from './userquizanswer/userquizanswer.compone
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        whitelistedDomains: ['localhost:3000'],
+        blacklistedRoutes: ['localhost:3000/admin/login']
+      }
+    })
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    AuthGuard,
+    CourseService,
+    SubjectService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

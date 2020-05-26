@@ -1,0 +1,82 @@
+
+<button class="back btn btn-outline-info" (click)="redirectBack()">Back</button>
+<button class=" add btn btn-outline-success" (click)="showAddForm()"><i class="fa fa-plus"></i></button>
+<h4>Subscription Data</h4>
+<table class="table table-bordered table-responsive table-striped table-hover">
+    <thead>
+        <tr>
+            <th class="text-center">Subject Subscription ID</th>
+            <th class="text-center">Subject ID</th>
+            <th class="text-center">Prize</th>
+            <th class="text-center">Details</th>
+            <th class="text-center">Description</th>
+            <th class="text-center">Starting Time</th>
+            <th class="text-center">Ending Time</th>
+            <th class="text-center">Discounted Price</th>
+            <th class="text-center">Subscription Time</th>
+            <th class="text-center">Action</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let n of subscriptions">
+            <td>{{ n.subject_subscription_id }}</td>
+            <td>{{ n.subject_id }}</td>
+            <td>{{ n.price }}</td>
+            <td>{{ n.subject_subscription_details }}</td>
+            <td>{{ n.subject_subscription_description }}</td>
+            <td>{{ n.subject_subscription_starting_time }}</td>
+            
+            <td>{{ n.subject_subscription_ending_time }}</td>
+            <td>{{ n.discounted_price}}</td>
+            <td>{{ n.subscription_time }}</td>
+
+            <td>
+                <button class="btn btn-outline-info mr-2" (click)="showEditForm(n)">
+                    <i class="fa fa-edit"></i>
+                </button>
+                <button class="btn btn-outline-danger" (click)="removeData(n)">
+                    <i class="fa fa-minus"></i>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<br />
+
+<form *ngIf="editForm"  #myform2 = "ngForm" (ngSubmit) = "updateData(myform2)">
+    <h2>Edit Notes Details</h2>
+    <p>Subject Subscription ID <input type="text" name="subject_subscription_id" ngModel="{{editData.subject_subscription_id}}" readonly/></p>
+    <p>Subject ID <input type="text" name="subject_id" ngModel="{{editData.subject_id}}" readonly/></p>
+    <p>Price<input type="text" name="price" ngModel="{{editData.price}}" /></p>
+    <p>Details<input type="text" name="subject_subscription_details" ngModel="{{editData.subject_subscription_details}}" /></p>
+    <p>Description<input type="text" name="subject_subscription_description" ngModel="{{editData.subject_subscription_description}}" /></p>
+    <p>Starting Time<input type="text" name="subject_subscription_starting_time" ngModel="{{editData.subject_subscription_starting_time}}" /></p>
+    <p>Ending Time<input type="text" name="subject_subscription_ending_time" ngModel="{{editData.subject_subscription_ending_time}}" /></p>
+    <p>Dicounted Price<input type="text" name="discounted_price" ngModel="{{editData.discounted_price}}" /></p>
+    <p>Subscription Time<input type="text" name="subscription_time" ngModel="{{editData.subscription_time}}" /></p>
+
+    <p>
+        <button type="submit" class="btn btn-outline-primary mr-2">Submit</button>
+        <button type="button" class="btn btn-outline-dark" (click)="cancelEditForm()">Cancel</button>
+    </p>
+</form>
+
+<form *ngIf="newForm" #myform = "ngForm" (ngSubmit) = "saveData(myform)">
+    <h2>Add New Course</h2>
+    <p>Subject Id<input type="text" name="subject_id" ngModel="{{subject_id}}"  readonly/></p>
+    <p>Price<input type="text" name="price" ngModel required/></p>
+    <p>Details<input type="text" name="subject_subscription_details" ngModel/></p>
+    <p>Description<input type="text" name="subject_subscription_description" ngModel/></p>
+    <p>Starting Time<input type="text" name="subject_subscription_starting_time" ngModel/></p>    
+    <p>Ending Time <input type="text" name="subject_subscription_ending_time" ngModel/></p>
+    <p>Discounted Price <input type="text" name="discounted_price" ngModel/></p>
+    <p>Subscription Time<input type="text" name="subscription_time" ngModel/></p>
+
+    <p>
+        <button type="submit" class="btn btn-outline-primary mr-2">Submit</button>
+        <button type="button" class="btn btn-outline-dark" (click)="cancelAddData()">Cancel</button>
+    </p>
+</form>
+

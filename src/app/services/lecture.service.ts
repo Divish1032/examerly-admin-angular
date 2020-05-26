@@ -12,19 +12,19 @@ export class LectureService {
   constructor(private http: HttpClient, private vault : VaultService) { }
 
   getUsersFromData(topic_id : String): Observable<Lecture[]> {
-    return this.http.get<Lecture[]>( this.vault.apiDomain + '/lecture/fetch-lecture-by-topicid-admin/'+ topic_id);
+    return this.http.get<Lecture[]>( this.vault.apiDomain + '/fetch-lecture-by-topicid-admin/'+ topic_id);
   }
 
   newLecture(data, topic_id) {
-    return this.http.post( this.vault.apiDomain + '/lecture/insert-lecture/' + topic_id, data, {observe: 'response'});
+    return this.http.post( this.vault.apiDomain + '/insert-lecture/' + topic_id, data, {observe: 'response'});
   }
 
   updateLecture(data, lecture_id: Number) {
-    return this.http.post( this.vault.apiDomain + '/lecture/update-lecture/' + lecture_id, data, {observe: 'response'});
+    return this.http.post( this.vault.apiDomain + '/update-lecture/' + lecture_id, data, {observe: 'response'});
   }
 
   deleteLecture(lecture_id: Number) {
-    return this.http.delete( this.vault.apiDomain + '/lecture/delete-lecture/' + lecture_id,  {observe: 'response'});
+    return this.http.delete( this.vault.apiDomain + '/delete-lecture/' + lecture_id,  {observe: 'response'});
   }
 
 }

@@ -2,7 +2,7 @@
 <button class="add btn btn-outline-success" (click)="showAddSubjectForm()"><i class="fa fa-plus"></i></button>
 
 <h4>Subject Data</h4>
-<table class="table table-bordered table-striped table-hover">
+<table class="table table-bordered table-responsive  table-striped table-hover">
     <thead>
         <tr>
             <th class="text-center">Course ID</th>
@@ -32,6 +32,7 @@
                 </button>
                 <br>
                 <a class="btn btn-outline-dark subject_btn"  [routerLink] = "['/course', s.course_id, 'subject', s.subject_id, 'topic']" >View Topic</a>
+                <a class="btn btn-outline-dark subject_btn"  [routerLink] = "['/course', s.course_id, 'subject', s.subject_id, 'subscription']" >View Subscription</a>
             </td>
         </tr>
     </tbody>

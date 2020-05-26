@@ -12,19 +12,19 @@ export class TopicService {
   constructor(private http: HttpClient, private vault : VaultService) { }
 
   getTopics(subject_id : String): Observable<Topic[]> {
-    return this.http.get<Topic[]>( this.vault.apiDomain + '/topic/fetch-topic-by-subjectid-admin/'+ subject_id);
+    return this.http.get<Topic[]>( this.vault.apiDomain + '/fetch-topic-by-subjectid-admin/'+ subject_id);
   }
 
   newTopic(data, subject_id) {
-    return this.http.post( this.vault.apiDomain + '/topic/insert-topic/' + subject_id, data, {observe: 'response'});
+    return this.http.post( this.vault.apiDomain + '/insert-topic/' + subject_id, data, {observe: 'response'});
   }
 
   updateTopic(data, topic_id: Number) {
-    return this.http.post( this.vault.apiDomain + '/topic/update-topic/' + topic_id, data, {observe: 'response'});
+    return this.http.post( this.vault.apiDomain + '/update-topic/' + topic_id, data, {observe: 'response'});
   }
 
   deleteTopic(topic_id: Number) {
-    return this.http.delete( this.vault.apiDomain + '/topic/delete-topic/' + topic_id,  {observe: 'response'});
+    return this.http.delete( this.vault.apiDomain + '/delete-topic/' + topic_id,  {observe: 'response'});
   }
 
 }

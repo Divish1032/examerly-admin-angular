@@ -14,19 +14,19 @@ export class CourseService {
 
    }
 
-  getUsersFromData(): Observable<Course[]> {
-    return this.http.get<Course[]>( this.vault.apiDomain + '/course/fetch-courses-admin');
+  getUsersFromData(): any {
+    return this.http.get( this.vault.apiDomain + '/fetch-courses-admin');
   }
 
-  newCourse(data) {
-    return this.http.post( this.vault.apiDomain + '/course/insert-course', data, {observe: 'response'});
+  newCourse(data) :any {
+    return this.http.post( this.vault.apiDomain + '/insert-course', data, {observe: 'response'});
   }
 
-  updateCourse(data, course_id) {
-    return this.http.post( this.vault.apiDomain + '/course/update-course/' + course_id, data, {observe: 'response'});
+  updateCourse(data, course_id): any {
+    return this.http.post( this.vault.apiDomain + '/update-course/' + course_id, data, {observe: 'response'});
   }
 
-  deleteCourse(course_id: Number) {
-    return this.http.delete( this.vault.apiDomain + '/course/delete-course/' + course_id,  {observe: 'response'});
+  deleteCourse(course_id: Number): any {
+    return this.http.delete( this.vault.apiDomain + '/delete-course/' + course_id,  {observe: 'response'});
   }
 }

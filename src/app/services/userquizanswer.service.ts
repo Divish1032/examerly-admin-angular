@@ -12,7 +12,7 @@ export class UserquizanswerService {
   constructor(private http: HttpClient, private vault : VaultService) { }
 
   getUsersAnswers(quiz_id : String, user_id : String): Observable<UserQuizAnswer[]> {
-    return this.http.get<UserQuizAnswer[]>( this.vault.apiDomain + '/answer/fetch-user-answer-by-quiz-admin/'+ quiz_id + '/' + user_id);
+    return this.http.get<UserQuizAnswer[]>( this.vault.apiDomain + '/fetch-user-answer-by-quiz-admin/'+ quiz_id + '/' + user_id);
   }
 
 }
