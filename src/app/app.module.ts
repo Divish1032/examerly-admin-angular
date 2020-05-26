@@ -54,7 +54,7 @@ export function tokenGetter() {
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
-        whitelistedDomains: [ 'localhost:3000','ec2-13-233-227-222.ap-south-1.compute.amazonaws.com:3000/'],
+        whitelistedDomains: [ 'localhost:3000','ec2-13-233-227-222.ap-south-1.compute.amazonaws.com:3000'],
         blacklistedRoutes: [ 'localhost:3000/admin/login', 'ec2-13-233-227-222.ap-south-1.compute.amazonaws.com:3000/admin/login']
       }
     })
