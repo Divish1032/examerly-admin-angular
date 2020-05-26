@@ -23,7 +23,7 @@ import { AuthService } from './services/auth.service';
 import { AuthGuard } from './services/auth.guard';
 import { CourseService } from './services/course.service';
 import { SubjectService } from './services/subject.service';
- 
+
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -54,8 +54,8 @@ export function tokenGetter() {
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
-        whitelistedDomains: ['localhost:3000'],
-        blacklistedRoutes: ['localhost:3000/admin/login']
+        whitelistedDomains: ['http://ec2-13-233-227-222.ap-south-1.compute.amazonaws.com:3000'],
+        blacklistedRoutes: ['http://ec2-13-233-227-222.ap-south-1.compute.amazonaws.com:3000/admin/login']
       }
     })
   ],
